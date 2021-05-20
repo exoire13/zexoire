@@ -30,7 +30,7 @@ const player = new distube(client);
 
 client.queue = new Map();
 client.vote = new Map();
-const { ready } = require("./events/client/ready.js")
+
 
 client.commands = new discord.Collection();
 client.aliases = new discord.Collection();
