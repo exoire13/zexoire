@@ -2,7 +2,7 @@ const { default_prefix } = require('./config.json')
 const { Collection } = require('discord.js')
 const mongoose = require('mongoose')
 
-mongoose.connect("mongodb+srv://zexoire:zexoire123@zexoire.cvnjf.mongodb.net/test", {
+mongoose.connect("mongo uri", {
    useUnifiedTopology: true,
    useNewUrlParser: true,
  }).then(console.log('connected to zexoire mongo'))
@@ -42,7 +42,7 @@ client.aliases = new discord.Collection();
 client.on("message", async message => {
 
   let CustomPrefix = await db.fetch(`prefix_${message.guild.id}`);
-  if (!CustomPrefix) CustomPrefix = `>`;
+  if (!CustomPrefix) CustomPrefix = `your prefix`;
 
 
   if (message.author.bot || !message.guild || message.webhookID) return;
@@ -97,24 +97,6 @@ client.on('guildMemberAdd', async (member) => {
         member.roles.add(await db.get(`autorole-${member.guild.id}`))
   }
 })
-
-client.on("message", async message => {
-if (message.channel.name == "chatbot") {
-if (message.author.bot) return;
-message.content = message.content.replace(/@(everyone)/gi, "everyone").replace(/@(here)/gi, "here");
-if (message.content.includes(`@`)) {
-return message.channel.send(`**:x: Please dont mention anyone**`);
- }
-  message.channel.startTyping();
-if (!message.content) return message.channel.send("Please say something.");
-fetch(`https://api.affiliateplus.xyz/api/chatbot?message=${encodeURIComponent(message.content)}&botname=${client.user.username}&ownername=xxxxx`)
-    .then(res => res.json())
-    .then(data => {
-        message.channel.send(`<@${message.author.id}> ${data.message}`);
-    });
-      message.channel.stopTyping();
-}
-});
 
 
 client.snipes = new Map()
@@ -475,6 +457,6 @@ client.on('message', async (message) => {
 	if (deleting) return message.delete();
 });
 
-client.login("ODM2NDE5MzQ3NDg0MjQ2MDI2.YIduOA.PMZoR2YWnyvBJUTJBjPMxAH6iVY");
+client.login("sUp-ErSec_retTokEN");
 
-connectBdlBot("7c27d821-3f33-46c5-afb1-e81cdf202d08", client)
+connectBdlBot("bdl uri", client)
