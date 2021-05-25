@@ -13,8 +13,6 @@ const Schema = require('./models/reaction-roles.js');
 const { emotes , emoji} =require("./config.json")
 const discord = require('discord.js')
 
-//blacklist
-const blacklistedWords = new Collection();
 
 const client = new discord.Client({
   disableEveryone: true
