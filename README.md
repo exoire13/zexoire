@@ -11,3 +11,6 @@ to start it simply use ```node index.js```
 
 # Credits 
 <br> thanks to cwkahn for letting me use his code and amplifying it to be better. You guys can see his version aswell.
+
+# running
+you can run this on repl<br>https://replit.com/@exoire/Zexoire<br>
